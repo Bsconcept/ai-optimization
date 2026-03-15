@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Explorer - Discover Your Next Favorite Film</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <h1>Movie Explorer</h1>
+            </div>
+            <div class="header-controls">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search for movies..." aria-label="Search movies">
+                </div>
+                <div class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Filters Section -->
+        <section class="filters">
+            <div class="filter-group">
+                <label for="genreFilter">Genre:</label>
+                <select id="genreFilter" aria-label="Filter by genre">
+                    <option value="all">All Genres</option>
+                    <option value="28">Action</option>
+                    <option value="35">Comedy</option>
+                    <option value="18">Drama</option>
+                    <option value="27">Horror</option>
+                    <option value="10749">Romance</option>
+                    <option value="878">Sci-Fi</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="yearFilter">Year:</label>
+                <select id="yearFilter" aria-label="Filter by year">
+                    <option value="all">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="ratingFilter">Rating:</label>
+                <select id="ratingFilter" aria-label="Filter by rating">
+                    <option value="all">All Ratings</option>
+                    <option value="9">9+ ★</option>
+                    <option value="8">8+ ★</option>
+                    <option value="7">7+ ★</option>
+                    <option value="6">6+ ★</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Loading Indicator -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading amazing movies...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <i class="fas fa-exclamation-circle"></i>
+            <p></p>
+            <button onclick="loadMovies()">Try Again</button>
+        </div>
+
+        <!-- Movies Grid -->
+        <div class="movies-grid" id="moviesGrid"></div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-film"></i>
+            <h3>No movies found</h3>
+            <p>Try adjusting your filters or search query</p>
+        </div>
+
+        <!-- Movie Details Modal -->
+        <div class="modal" id="movieModal" aria-hidden="true">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close modal" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
